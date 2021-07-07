@@ -3,4 +3,4 @@ Second Test
 Test
 Sample1
 trigger build from release
-test to trigger build from anothr folder
+test to trigger build from another folder
