@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Wed Jul 21 11:09:21 IST 2021
+# Date created:         Thu Jul 22 18:22:47 IST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -47,7 +47,7 @@ spec:
   - Scheduled-Trigger
   releaseFolder: Sample
   periodicity: 0 1 * * * *
-  triggerTime: 2021-07-21T11:01:06.137000
+  triggerTime: 2021-07-22T18:01:00.444000
 - directory: ffftftt
   children:
   - notifications:
