@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Thu Sep 09 02:23:00 EDT 2021
+# Date created:         Thu Sep 09 02:24:08 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -15,6 +15,9 @@ spec:
     tasks:
     - name: Delivery_test
       type: delivery.CreateDelivery
+      ^title: Some Delivery
+      pattern: Test/Simple-Delivery
+      folder: ENG-4545
   riskProfile: Default risk profile
 - notifications:
   - notification: TASK_OVERDUE
