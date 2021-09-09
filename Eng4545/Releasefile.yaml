@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Thu Sep 09 02:19:29 EDT 2021
+# Date created:         Thu Sep 09 03:29:53 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -27,18 +27,18 @@ spec:
       newReleaseTitle: test
       riskProfile: Default risk profile
       template: Triggers-test/triggered Template
-      folder: ENG-4545/Sub-Triggers-test1
+      folder: ./Sub-Triggers-test1
     - name: Delivery
       type: delivery.CreateDelivery
       ^title: Test
       pattern: Test/Simple-Delivery
-      folder: ENG-4545
+      folder: ./
       variableMapping:
         pythonScript.deliveryId: "${SumpleDelivery}"
     - name: Deli-2
       type: delivery.FindOrCreateDelivery
-      pattern: ENG-4545/Test-ENG4545
-      folder: ENG-4545
+      pattern: ./Test-ENG4545
+      folder: ./
   variables:
   - type: xlrelease.StringVariable
     key: SumpleDelivery
@@ -55,7 +55,7 @@ spec:
     col: 1
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Number of releases
     type: xlrelease.ReleasesByMonthTile
@@ -63,7 +63,7 @@ spec:
     col: 3
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Release efficiency
     type: xlrelease.ReleaseEfficiencyTile
@@ -71,7 +71,7 @@ spec:
     col: 0
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Avg. task duration
     type: xlrelease.AvgTaskDurationTile
@@ -79,7 +79,7 @@ spec:
     col: 1
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Time spent by task category
     type: xlrelease.TaskTimeSpentTile
@@ -87,7 +87,7 @@ spec:
     col: 4
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Completed releases
     type: xlrelease.CompletedReleasesTile
@@ -95,7 +95,7 @@ spec:
     col: 0
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Avg. release duration
     type: xlrelease.AvgReleaseDurationTile
@@ -103,7 +103,7 @@ spec:
     col: 0
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Task efficiency
     type: xlrelease.TaskEfficiencyTile
@@ -111,7 +111,7 @@ spec:
     col: 2
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Top 10 longest releases
     type: xlrelease.LongestReleasesTile
@@ -119,7 +119,7 @@ spec:
     col: 0
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Avg. release duration over time
     type: xlrelease.AvgReleaseDurationByMonthTile
@@ -127,7 +127,7 @@ spec:
     col: 3
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Top 10 longest phases
     type: xlrelease.LongestPhasesTile
@@ -135,7 +135,7 @@ spec:
     col: 0
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   - name: Top 10 longest tasks
     type: xlrelease.LongestTasksTile
@@ -143,11 +143,11 @@ spec:
     col: 3
     filters:
     - type: xlrelease.FolderFilter
-      folder: ENG-4545
+      folder: ./
     - type: xlrelease.DateFilter
   filters:
   - type: xlrelease.FolderFilter
-    folder: ENG-4545
+    folder: ./
   - type: xlrelease.DateFilter
 - name: Event-Trigger-sub
   type: events.EventBasedTrigger
@@ -165,7 +165,7 @@ spec:
     value: triggered Template1
   - type: xlrelease.StringValue
     targetProperty: releaseFolder
-    value: ENG-4545/Sub-Triggers-test1
+    value: ./Sub-Triggers-test1
   triggerActionType: xlrelease.CreateReleaseFromTemplateAction
   eventSource: Trigger-Test
   eventType: events.HttpRequestEvent
