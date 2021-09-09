@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Thu Sep 09 03:30:54 EDT 2021
+# Date created:         Thu Sep 09 03:32:35 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -27,7 +27,7 @@ spec:
       newReleaseTitle: test
       riskProfile: Default risk profile
       template: Triggers-test/triggered Template
-      folder: ./Sub-Triggers-test1
+      folder: ./
     - name: Delivery
       type: delivery.CreateDelivery
       ^title: Test
@@ -39,8 +39,8 @@ spec:
       type: delivery.FindOrCreateDelivery
       pattern: ./Test-ENG4545
       folder: ./
-    - name: Delivery-3
-      type: xlrelease.Task
+    - name: Deli-3
+      type: delivery.CreateDelivery
   variables:
   - type: xlrelease.StringVariable
     key: SumpleDelivery
