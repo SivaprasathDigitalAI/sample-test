@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Thu Sep 09 08:09:04 EDT 2021
+# Date created:         Thu Sep 09 08:10:14 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -17,6 +17,9 @@ spec:
       type: delivery.CreateDelivery
       ^title: Some Delivery
       pattern: Test/Simple-Delivery
+      folder: ENG-4545
+    - name: Delivery-2
+      type: delivery.CreateDelivery
       folder: ENG-4545
   riskProfile: Default risk profile
 - notifications:
