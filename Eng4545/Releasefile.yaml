@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Thu Sep 09 03:35:49 EDT 2021
+# Date created:         Thu Sep 09 08:06:45 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,9 @@ kind: Templates
 metadata:
   home: ENG-4545
 spec:
+- pattern: Simple-Delivery-Test
+  stages:
+  - stage: New Stage
 - pattern: Test-ENG4545
   stages:
   - stage: New Stage
@@ -199,7 +202,7 @@ spec:
   - eee
   gitRepository: Git-Test
   branch: main
-  commitId: 9565df5317182b29873ad84bcbf989817e414783
+  commitId: 75b5c2274077eb7af562c49b68059eeb9efcd437
 - name: jira
   type: jira.IssueTrigger
   releaseTitle: jira
