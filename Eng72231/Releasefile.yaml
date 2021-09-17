@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Fri Sep 17 06:17:11 EDT 2021
+# Date created:         Fri Sep 17 06:17:52 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -113,7 +113,7 @@ spec:
     body: |-
       The **${task.title}** task in the **${release.title}** release is active but not assigned to anyone anymore.
 
-      Please assign the task to a user or a team.
+      Please assign the task to a user or a team. Tested For folder ENG-7223
     roles:
     - Watcher
     - Task Team
