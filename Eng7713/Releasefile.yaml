@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Mon Sep 20 05:55:04 EDT 2021
+# Date created:         Mon Sep 20 06:00:40 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -16,14 +16,6 @@ spec:
   - type: xlrelease.IntegerVariable
     key: folder.ENG7713_1
     description: Folder Number
-- name: ENG-7713
-  type: events.GetWebhookEndpoint
-  variableMapping:
-    authentication.githubSecret: "${global.git.credentials}"
-  path: eng7713
-  authentication:
-    name: Configuration/Custom/Configuratione64bba5134984bf1ad3efd5640371187/authentication
-    type: github.GithubAuthentication
 - name: ENG-7713
   type: git.Repository
   variableMapping:
