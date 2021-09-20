@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Mon Sep 20 05:48:25 EDT 2021
+# Date created:         Mon Sep 20 05:53:32 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -16,20 +16,17 @@ spec:
   - type: xlrelease.IntegerVariable
     key: folder.ENG7713_1
     description: Folder Number
-  - type: xlrelease.PasswordStringVariable
-    key: folder.git.credentials
-    value: !value "xlrelease_PasswordStringVariable_folder_git_credentials_value"
 - name: ENG-7713
   type: events.GetWebhookEndpoint
   path: eng7713
   authentication:
     name: Configuration/Custom/Configuratione64bba5134984bf1ad3efd5640371187/authentication
     type: events.NoAuthentication
-- name: ENG-7713 Repo
+- name: ENG-7713
   type: git.Repository
   variableMapping:
     password: "${global.git.credentials}"
-  url: https://github.com/SivaprasathDigitalAI/Test_version_control
+  url: https://github.com/SivaprasathDigitalAI/sample-test
   username: SivaprasathDigitalAI
 - notifications:
   - notification: TASK_OVERDUE
