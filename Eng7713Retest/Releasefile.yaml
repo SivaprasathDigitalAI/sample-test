@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Wed Sep 22 07:10:46 EDT 2021
+# Date created:         Wed Sep 22 07:15:11 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -16,10 +16,6 @@ spec:
   - type: xlrelease.IntegerVariable
     key: folder.ENG7713_1
     description: Folder Number
-  - type: xlrelease.StringVariable
-    key: folder.simple
-    description: Simple
-    value: Simple Variable
 - name: Tesr-7223
   type: events.GetWebhookEndpoint
   path: simple
@@ -32,15 +28,6 @@ spec:
     password: "${global.git.credentials}"
   url: https://github.com/SivaprasathDigitalAI/sample-test
   username: SivaprasathDigitalAI
-- template: Test_1
-  scheduledStartDate: 2021-09-21T23:30:00-04:00
-  phases:
-  - phase: Test Phase
-    tasks:
-    - name: Manual Task
-      type: xlrelease.Task
-    color: '#0079BC'
-  riskProfile: Default risk profile
 - notifications:
   - notification: TASK_OVERDUE
     priority: Normal
