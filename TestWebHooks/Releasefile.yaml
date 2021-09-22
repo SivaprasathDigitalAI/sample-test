@@ -1,6 +1,6 @@
 # Exported from:        http://xl-release-nightly.xebialabs.com:5516/
 # Release version:      10.3.0-921.113
-# Date created:         Tue Sep 21 16:50:04 CEST 2021
+# Date created:         Wed Sep 22 14:41:41 CEST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -24,6 +24,288 @@ spec:
     password: "${folder.git.credentials}"
   url: https://github.com/SivaprasathDigitalAI/sample-test
   username: SivaprasathDigitalAI
+- name: Deployments
+  type: xlrelease.DeploymentsByStageDashboard
+  owner: admin
+  tiles:
+  - type: xlrelease.PlaceholderTile
+    row: 0
+    col: 0
+    content: Development
+  - name: Current applications
+    type: deployment.CurrentApplicationsTile
+    width: 1
+    height: 1
+    row: 1
+    col: 0
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: Development
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Activity
+    type: deployment.DeploymentsActivityTile
+    width: 1
+    row: 2
+    col: 0
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStagef843fdaba74f43a8b84f0e3261ecaf08
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Total deployments
+    type: deployment.TotalDeploymentsTile
+    width: 1
+    height: 1
+    row: 4
+    col: 0
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStagef843fdaba74f43a8b84f0e3261ecaf08
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Deployments
+    type: deployment.DeploymentsDistributionTile
+    width: 1
+    row: 5
+    col: 0
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStagef843fdaba74f43a8b84f0e3261ecaf08
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+    height: 1
+  - name: Deployment success rate
+    type: deployment.DeploymentsSuccessRateTile
+    width: 1
+    height: 1
+    row: 6
+    col: 0
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStagef843fdaba74f43a8b84f0e3261ecaf08
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - type: xlrelease.PlaceholderTile
+    row: 0
+    col: 1
+    content: Test
+  - name: Current applications
+    type: deployment.CurrentApplicationsTile
+    width: 1
+    height: 1
+    row: 1
+    col: 1
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: Test
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Activity
+    type: deployment.DeploymentsActivityTile
+    width: 1
+    row: 2
+    col: 1
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStage0be6a21cab21404db69797dee7b82478
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Total deployments
+    type: deployment.TotalDeploymentsTile
+    width: 1
+    height: 1
+    row: 4
+    col: 1
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStage0be6a21cab21404db69797dee7b82478
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Deployments
+    type: deployment.DeploymentsDistributionTile
+    width: 1
+    row: 5
+    col: 1
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStage0be6a21cab21404db69797dee7b82478
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+    height: 1
+  - name: Deployment success rate
+    type: deployment.DeploymentsSuccessRateTile
+    width: 1
+    height: 1
+    row: 6
+    col: 1
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStage0be6a21cab21404db69797dee7b82478
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - type: xlrelease.PlaceholderTile
+    row: 0
+    col: 2
+    content: Acceptance
+  - name: Current applications
+    type: deployment.CurrentApplicationsTile
+    width: 1
+    height: 1
+    row: 1
+    col: 2
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: Acceptance
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Activity
+    type: deployment.DeploymentsActivityTile
+    width: 1
+    row: 2
+    col: 2
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStagedea4b729831b4867ae5da137b71b9ad7
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Total deployments
+    type: deployment.TotalDeploymentsTile
+    width: 1
+    height: 1
+    row: 4
+    col: 2
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStagedea4b729831b4867ae5da137b71b9ad7
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Deployments
+    type: deployment.DeploymentsDistributionTile
+    width: 1
+    row: 5
+    col: 2
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStagedea4b729831b4867ae5da137b71b9ad7
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+    height: 1
+  - name: Deployment success rate
+    type: deployment.DeploymentsSuccessRateTile
+    width: 1
+    height: 1
+    row: 6
+    col: 2
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStagedea4b729831b4867ae5da137b71b9ad7
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - type: xlrelease.PlaceholderTile
+    row: 0
+    col: 3
+    content: Production
+  - name: Current applications
+    type: deployment.CurrentApplicationsTile
+    width: 1
+    height: 1
+    row: 1
+    col: 3
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: Production
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Activity
+    type: deployment.DeploymentsActivityTile
+    width: 1
+    row: 2
+    col: 3
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStage3458833aee3d44339d30e8bc134db7ba
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Total deployments
+    type: deployment.TotalDeploymentsTile
+    width: 1
+    height: 1
+    row: 4
+    col: 3
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStage3458833aee3d44339d30e8bc134db7ba
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: Deployments
+    type: deployment.DeploymentsDistributionTile
+    width: 1
+    row: 5
+    col: 3
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStage3458833aee3d44339d30e8bc134db7ba
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+    height: 1
+  - name: Deployment success rate
+    type: deployment.DeploymentsSuccessRateTile
+    width: 1
+    height: 1
+    row: 6
+    col: 3
+    filters:
+    - type: xlrelease.EnvironmentStageFilter
+      stage: EnvironmentStage3458833aee3d44339d30e8bc134db7ba
+    - type: xlrelease.FolderFilter
+      folder: Folder0548f81a88854362a8243dea5311c491
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  columns: 4
+  filters:
+  - type: xlrelease.FolderFilter
+    folder: Folder0548f81a88854362a8243dea5311c491
+  - type: xlrelease.DateFilter
+    timeFrame: LAST_MONTH
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
