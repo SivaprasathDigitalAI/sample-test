@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Fri Sep 24 10:23:17 EDT 2021
+# Date created:         Fri Sep 24 10:23:55 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -14,8 +14,6 @@ spec:
   - phase: ENG-7560
     tasks:
     - name: ENG-7560
-      type: xlrelease.Task
-    - name: ENG-7560-test
       type: xlrelease.Task
     color: '#0079BC'
   riskProfile: Default risk profile
@@ -44,7 +42,7 @@ spec:
   releaseFolder: ./
   gitRepository: Git-Test
   branch: main
-  commitId: 798091011258b44cce3d7e0bf4163ac6bdef1048
+  commitId: 0c96d206bc66853ad97030eef259b92ee2b4f9a1
 - notifications:
   - notification: TASK_OVERDUE
     priority: Normal
