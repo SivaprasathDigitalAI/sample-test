@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Tue Sep 28 09:05:41 EDT 2021
+# Date created:         Tue Sep 28 09:07:51 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -20,6 +20,46 @@ spec:
       type: xlrelease.Task
     color: '#0079BC'
   riskProfile: Default risk profile
+- name: Webhook Trigger
+  type: events.EventBasedTrigger
+  enabled: false
+  mappedProperties:
+  - type: xlrelease.StringValue
+    targetProperty: releaseTitle
+    value: ENG-7218-Webhooks
+  - type: xlrelease.ListStringValue
+    targetProperty: tags
+    value:
+    - test
+  - type: xlrelease.StringValue
+    targetProperty: template
+    value: ENG-7560
+  - type: xlrelease.StringValue
+    targetProperty: releaseFolder
+    value: ENG-7218
+  triggerActionType: xlrelease.CreateReleaseFromTemplateAction
+  eventSource: ENG-7220
+  eventType: events.HttpRequestEvent
+- name: Webhook Trigger1
+  type: events.EventBasedTrigger
+  enabled: false
+  mappedProperties:
+  - type: xlrelease.StringValue
+    targetProperty: releaseTitle
+    value: ENG-7218-Webhooks
+  - type: xlrelease.ListStringValue
+    targetProperty: tags
+    value:
+    - Webhook Trigger1 Release
+  - type: xlrelease.StringValue
+    targetProperty: template
+    value: ENG-7560
+  - type: xlrelease.StringValue
+    targetProperty: releaseFolder
+    value: ENG-7218
+  triggerActionType: xlrelease.CreateReleaseFromTemplateAction
+  eventSource: ENG-7220
+  eventType: events.HttpRequestEvent
 - name: ENG-7560-Git-Trigger
   type: git.Poll
   description: Triggers Activity Test
@@ -29,7 +69,7 @@ spec:
   releaseFolder: ./
   gitRepository: Git-Test
   branch: main
-  commitId: 9d81b3ca719d2795708d688d62e16e909c6719f7
+  commitId: 0a322a28115967eb93dff8b846fe0e9b52bdb9d5
 - notifications:
   - notification: TASK_OVERDUE
     priority: Normal
