@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Tue Sep 28 09:07:51 EDT 2021
+# Date created:         Fri Oct 01 05:35:25 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -18,6 +18,15 @@ spec:
       type: xlrelease.Task
     - name: ENG-7560-test
       type: xlrelease.Task
+    - name: test
+      type: xlrelease.ScriptTask
+      script: |-
+        from java.text import SimpleDateFormat
+        from java.util import Date
+
+        date = Date()
+        sdf = SimpleDateFormat("MM/dd/yyyy HH:mm:ss")
+        print(sdf.format(date))
     color: '#0079BC'
   riskProfile: Default risk profile
 - name: Webhook Trigger
@@ -47,10 +56,6 @@ spec:
   - type: xlrelease.StringValue
     targetProperty: releaseTitle
     value: ENG-7218-Webhooks
-  - type: xlrelease.ListStringValue
-    targetProperty: tags
-    value:
-    - Webhook Trigger1 Release
   - type: xlrelease.StringValue
     targetProperty: template
     value: ENG-7560
@@ -63,13 +68,22 @@ spec:
 - name: ENG-7560-Git-Trigger
   type: git.Poll
   description: Triggers Activity Test
+  enabled: false
   periodicity: "30"
   releaseTitle: ENG-7560
   template: ENG-7560
   releaseFolder: ./
   gitRepository: Git-Test
   branch: main
-  commitId: 0a322a28115967eb93dff8b846fe0e9b52bdb9d5
+  commitId: 14a7c0f5db8f04f477588486b2ef4b24b9305b22
+- name: simple Time Based Trigger
+  type: time.Schedule
+  releaseTitle: Time-Based-ENG7560
+  template: ENG-7560
+  tags:
+  - "7560"
+  releaseFolder: ./
+  periodicity: 0 0 9-17 * * MON-FRI
 - notifications:
   - notification: TASK_OVERDUE
     priority: Normal
