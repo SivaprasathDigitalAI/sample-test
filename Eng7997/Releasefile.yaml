@@ -8,6 +8,7 @@ kind: Templates
 metadata:
   home: ENG-7997
 spec:
+- directory: ENG-7997-sub-1
 - directory: ENG-7997-sub
   children:
   - notifications:
