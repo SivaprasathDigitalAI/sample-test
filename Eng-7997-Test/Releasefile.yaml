@@ -1,15 +1,19 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Fri Oct 22 02:25:57 EDT 2021
+# Date created:         Fri Oct 22 03:05:00 EDT 2021
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  home: ENG-7997
+  home: Folder7997
 spec:
+- pattern: "7997"
+  stages:
+  - stage: New Stage
 - template: Test Template
   scheduledStartDate: 2021-10-21T23:30:00-04:00
+  dueDate: 2021-10-22T00:30:00-04:00
   phases:
   - phase: Test Phase
     tasks:
@@ -26,6 +30,7 @@ spec:
   children:
   - template: Sub-Folder-Test
     scheduledStartDate: 2021-10-21T23:30:00-04:00
+    dueDate: 2021-10-22T00:30:00-04:00
     phases:
     - phase: Sub Folder Test
       tasks:
@@ -44,7 +49,7 @@ spec:
     releaseFolder: ./
     gitRepository: Git-Test
     branch: main
-    commitId: debb0b39f368711db3c5fda2ea56d53a8b84c9ab
+    commitId: 940eef07b7083edd6b21e46e2103299cb19a73af
   - notifications:
     - notification: TASK_OVERDUE
       priority: Normal
