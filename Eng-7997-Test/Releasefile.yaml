@@ -1,13 +1,17 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Fri Oct 22 03:05:00 EDT 2021
+# Date created:         Fri Oct 22 08:51:39 EDT 2021
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  home: Folder7997
+  home: ENG-7997-Test/SubFolder7997-1
 spec:
+- folderVariables:
+  - type: xlrelease.StringVariable
+    key: folder.Test
+    value: Test
 - pattern: "7997"
   stages:
   - stage: New Stage
@@ -49,7 +53,7 @@ spec:
     releaseFolder: ./
     gitRepository: Git-Test
     branch: main
-    commitId: 940eef07b7083edd6b21e46e2103299cb19a73af
+    commitId: 9eea285c8e6bd945c9623cd64bc3c1de1673994d
   - notifications:
     - notification: TASK_OVERDUE
       priority: Normal
