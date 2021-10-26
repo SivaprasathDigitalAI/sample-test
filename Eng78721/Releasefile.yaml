@@ -1,0 +1,37 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      10.2.0-20210603-123974
+# Date created:         Tue Oct 26 09:52:38 EDT 2021
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: ENG 78 72
+spec:
+- pattern: test
+  stages:
+  - stage: New Stage
+- directory: SubFolder7997
+  children:
+  - template: Sub-Folder-Test
+    scheduledStartDate: 2021-10-21T23:30:00-04:00
+    dueDate: 2021-10-22T00:30:00-04:00
+    phases:
+    - phase: Sub Folder Test
+      tasks:
+      - name: Create Release Task
+        type: xlrelease.CreateReleaseTask
+        newReleaseTitle: SubFolder7997
+        riskProfile: Default risk profile
+        folder: ./
+      color: '#3D6C9E'
+    riskProfile: Default risk profile
+  - name: Git Based  trigger
+    type: git.Poll
+    enabled: false
+    releaseTitle: SubFOlderTrigger7997
+    template: Sub-Folder-Test
+    releaseFolder: ./
+    gitRepository: Git-Test
+    branch: main
+    commitId: f47cc6652d6baaf7f67fe22ba68b2628242bb21f
