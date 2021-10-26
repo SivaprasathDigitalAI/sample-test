@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Tue Oct 26 10:39:48 EDT 2021
+# Date created:         Tue Oct 26 10:43:40 EDT 2021
 
 ---
 apiVersion: xl-release/v1
@@ -22,9 +22,6 @@ spec:
   stages:
   - stage: New Stage
 - pattern: Test-ENG4545
-  stages:
-  - stage: New Stage
-- pattern: test12
   stages:
   - stage: New Stage
 - name: Release statistics
@@ -133,6 +130,11 @@ spec:
   - type: xlrelease.DateFilter
 - directory: Sub-4545
   children:
+  - template: eeee
+    scheduledStartDate: 2021-10-25T23:30:00-04:00
+    phases:
+    - phase: New Phase
+    riskProfile: Default risk profile
   - notifications:
     - notification: TASK_OVERDUE
       priority: High
