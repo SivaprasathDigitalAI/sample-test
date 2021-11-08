@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Thu Oct 28 10:15:05 EDT 2021
+# Date created:         Mon Nov 08 06:32:56 EST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -8,11 +8,6 @@ kind: Templates
 metadata:
   home: Test-Again
 spec:
-- template: Create Template2
-  scheduledStartDate: 2021-10-27T23:30:00-04:00
-  phases:
-  - phase: New Phase
-  riskProfile: Default risk profile
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
