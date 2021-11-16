@@ -1,25 +1,16 @@
-// Exported from:        http://LAPTOP-9C20LTLG:5516/#/templates/Folderc7e178190a1840b78f18aab0edb6b2de-Releasedd211bef3c744ab1919f8efcf4cadafb/code
-// Release version:      10.2.0-20210603-123974
-// Date created:         Tue Nov 16 07:36:29 EST 2021
+// Exported from:        http://localhost:5517/#/templates/Folder84bbcb47e9cc4af4a5be7b108286d0f6-Releasedb52c8dded9844d781795cf53473599f/code
+// Release version:      10.0.0
+// Date created:         Tue Nov 16 18:07:49 IST 2021
 
 xlr {
   template('FI-914 Template') {
     folder('FI-914')
-    scheduledStartDate Date.parse("yyyy-MM-dd'T'HH:mm:ssZ", '2021-11-15T22:30:00-0500')
+    scheduledStartDate Date.parse("yyyy-MM-dd'T'HH:mm:ssZ", '2021-11-16T09:00:00+0530')
     phases {
-      phase('Dummy Phase') {
-        color '#3D6C9E'
+      phase('FI-914 Phase') {
+        color '#0079BC'
         tasks {
           manual('Manual Task') {
-            
-          }
-          userInput('Test') {
-            description 'Please enter the required information below.'
-            variables {
-              
-            }
-          }
-          manual('Test Add') {
             
           }
         }
