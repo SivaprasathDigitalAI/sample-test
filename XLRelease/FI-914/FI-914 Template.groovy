@@ -1,6 +1,6 @@
 // Exported from:        http://LAPTOP-9C20LTLG:5516/#/templates/Folderc7e178190a1840b78f18aab0edb6b2de-Releasedd211bef3c744ab1919f8efcf4cadafb/code
 // Release version:      10.2.0-20210603-123974
-// Date created:         Tue Nov 16 07:03:46 EST 2021
+// Date created:         Tue Nov 16 07:36:29 EST 2021
 
 xlr {
   template('FI-914 Template') {
@@ -18,6 +18,9 @@ xlr {
             variables {
               
             }
+          }
+          manual('Test Add') {
+            
           }
         }
       }
