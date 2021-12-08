@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Wed Dec 08 07:19:03 EST 2021
+# Date created:         Wed Dec 08 07:27:48 EST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -16,6 +16,7 @@ spec:
   username: SivaprasathDigitalAI
 - template: "8236"
   scheduledStartDate: 2021-12-07T22:30:00-05:00
+  dueDate: 2021-12-07T23:30:00-05:00
   phases:
   - phase: 8239Phase
     tasks:
@@ -23,6 +24,12 @@ spec:
       type: xlrelease.Task
     color: '#3D6C9E'
   riskProfile: Default risk profile
+- name: Test
+  type: time.Schedule
+  releaseTitle: test-8236
+  template: "8236"
+  releaseFolder: ./
+  periodicity: 0 0 9-17 * * MON
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
