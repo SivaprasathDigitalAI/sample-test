@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Wed Dec 08 07:28:07 EST 2021
+# Date created:         Wed Dec 08 07:32:05 EST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,13 @@ kind: Templates
 metadata:
   home: ENG-8236-1
 spec:
+- folderVariables:
+  - type: xlrelease.PasswordStringVariable
+    key: folder.password1
+    value: !value "xlrelease_PasswordStringVariable_folder_password1_value"
+  - type: xlrelease.PasswordStringVariable
+    key: folder.Password2
+    value: !value "xlrelease_PasswordStringVariable_folder_Password2_value"
 - name: Git Test
   type: git.Repository
   variableMapping:
