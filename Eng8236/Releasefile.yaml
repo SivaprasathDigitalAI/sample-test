@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Wed Dec 08 03:10:24 EST 2021
+# Date created:         Wed Dec 08 03:42:10 EST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -8,26 +8,18 @@ kind: Templates
 metadata:
   home: ENG-8236
 spec:
-- folderVariables:
-  - type: xlrelease.PasswordStringVariable
-    key: folder.password1
-    value: !value "xlrelease_PasswordStringVariable_folder_password1_value"
-  - type: xlrelease.StringVariable
-    key: folder.password2
-    value: Test
-  - type: xlrelease.PasswordStringVariable
-    key: folder.Password3
-    value: !value "xlrelease_PasswordStringVariable_folder_Password3_value"
 - name: Git Test
   type: git.Repository
+  variableMapping:
+    password: "${global.git.credentials}"
   url: https://github.com/SivaprasathDigitalAI/sample-test
   username: SivaprasathDigitalAI
-  password: !value "git_Repository_Git_Test_password"
 - pattern: Pattern
   stages:
   - stage: New Stage
 - template: ENG8236Template
   scheduledStartDate: 2021-12-07T22:30:00-05:00
+  dueDate: 2021-12-07T23:30:00-05:00
   phases:
   - phase: ENG8236Phase
     tasks:
@@ -35,6 +27,17 @@ spec:
       type: xlrelease.Task
     color: '#3D6C9E'
   riskProfile: Default risk profile
+- name: Another Trigger
+  type: git.Poll
+  description: Dummy Trigger
+  enabled: false
+  periodicity: "10000"
+  releaseTitle: 8236_release
+  template: ENG8236Template
+  releaseFolder: ./
+  gitRepository: Git Test
+  branch: main
+  commitId: d10c74d75a063242c9ca7cb6bc43eb1bfb595948
 - name: Some Teigger
   type: time.Schedule
   releaseTitle: ENG8236
