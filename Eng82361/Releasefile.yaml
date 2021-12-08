@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Wed Dec 08 07:32:05 EST 2021
+# Date created:         Wed Dec 08 12:26:22 EST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -21,6 +21,11 @@ spec:
     password: "${global.git.credentials}"
   url: https://github.com/SivaprasathDigitalAI/sample-test
   username: SivaprasathDigitalAI
+- name: local Jenkins
+  type: jenkins.Server
+  url: http://localhost:8099
+  username: admin
+  password: !value "jenkins_Server_local_Jenkins_password"
 - template: "8236"
   scheduledStartDate: 2021-12-07T22:30:00-05:00
   dueDate: 2021-12-07T23:30:00-05:00
