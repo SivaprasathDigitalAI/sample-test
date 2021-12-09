@@ -21,6 +21,9 @@ spec:
   - type: xlrelease.PasswordStringVariable
     key: folder.Password4
     value: !value "xlrelease_PasswordStringVariable_folder_Password2_value"
+  - type: xlrelease.PasswordStringVariable
+    key: folder.PasswordTest
+    value: !value "xlrelease_PasswordStringVariable_folder_PasswordTest_value"
 - name: Git Test
   type: git.Repository
   variableMapping:
