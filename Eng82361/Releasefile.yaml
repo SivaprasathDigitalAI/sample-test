@@ -16,10 +16,10 @@ spec:
     key: folder.Password2
     value: !value "xlrelease_PasswordStringVariable_folder_Password2_value"
   - type: xlrelease.PasswordStringVariable
-    key: folder.password1
+    key: folder.password3
     value: !value "xlrelease_PasswordStringVariable_folder_password1_value"
   - type: xlrelease.PasswordStringVariable
-    key: folder.Password2
+    key: folder.Password4
     value: !value "xlrelease_PasswordStringVariable_folder_Password2_value"
 - name: Git Test
   type: git.Repository
