@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Mon Dec 20 20:24:40 IST 2021
+# Date created:         Mon Dec 20 20:25:02 IST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -14,6 +14,8 @@ spec:
   - phase: New Phase
     tasks:
     - name: MT1
+      type: xlrelease.Task
+    - name: MT2
       type: xlrelease.Task
   scriptUsername: admin
   scriptUserPassword: !value "xlrelease_Release_PONe_scriptUserPassword"
