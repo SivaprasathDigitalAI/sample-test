@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.2.0-20210603-123974
-# Date created:         Mon Dec 20 17:26:04 IST 2021
+# Date created:         Mon Dec 20 17:26:28 IST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -14,6 +14,8 @@ spec:
   - phase: Test Phase
     tasks:
     - name: Any MT
+      type: xlrelease.Task
+    - name: Another MT
       type: xlrelease.Task
     color: '#3D6C9E'
   scriptUsername: admin
