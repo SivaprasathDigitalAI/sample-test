@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Wed Dec 22 07:20:25 IST 2021
+# Date created:         Wed Dec 22 15:08:34 IST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -12,6 +12,12 @@ spec:
   - type: xlrelease.PasswordStringVariable
     key: folder.pass
     value: !value "xlrelease_PasswordStringVariable_folder_pass_value"
+- name: Another Repo
+  type: git.Repository
+  variableMapping:
+    password: "${global.git.credentials}"
+  url: https://github.com/SivaprasathDigitalAI/TestRepo
+  username: SivaprasathDigitalAI
 - name: Jenkin
   type: jenkins.Server
   url: http://localHost:8090
@@ -31,7 +37,6 @@ spec:
       type: databasePlugin.Oracle
       db_password: !value "databasePlugin_Oracle_Test_db_password"
   scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_First_Template_scriptUserPassword"
   riskProfile: Default risk profile
 - name: Trigger-One
   type: git.Poll
@@ -41,7 +46,6 @@ spec:
   gitRepository: Git -8601
   branch: main
   username: sivaprasath
-  password: !value "git_Poll_Trigger_One_password"
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
