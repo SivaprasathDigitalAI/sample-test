@@ -17,7 +17,7 @@ spec:
   variableMapping:
     password: "${global.git.credentials}"
   url: https://github.com/SivaprasathDigitalAI/TestRepo
-  username: SivaprasathDigitalAI
+  username: SivaprasathDigitalAI_1
 - name: Git -8601
   type: git.Repository
   variableMapping:
