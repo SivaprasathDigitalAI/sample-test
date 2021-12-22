@@ -18,6 +18,12 @@ spec:
     password: "${global.git.credentials}"
   url: https://github.com/SivaprasathDigitalAI/TestRepo
   username: SivaprasathDigitalAI
+- name: Git -8601
+  type: git.Repository
+  variableMapping:
+    password: "${global.git.credentials}"
+  url: https://github.com/SivaprasathDigitalAI/sample-test
+  username: SivaprasathDigitalAI_1
 - name: Jenkin
   type: jenkins.Server
   url: http://localHost:8090
