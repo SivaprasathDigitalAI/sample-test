@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Wed Dec 22 18:34:58 IST 2021
+# Date created:         Thu Dec 23 14:02:51 IST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -11,7 +11,6 @@ spec:
 - folderVariables:
   - type: xlrelease.PasswordStringVariable
     key: folder.pass
-    value: !value "xlrelease_PasswordStringVariable_folder_pass_value"
 - name: Another Repo
   type: git.Repository
   variableMapping:
@@ -22,7 +21,6 @@ spec:
   type: jenkins.Server
   url: http://localHost:8090
   username: admin
-  password: !value "jenkins_Server_Jenkin_password"
 - name: Git-8601
   type: xlrelease.GitHubScmConnectorConfig
   variableMapping:
@@ -43,12 +41,19 @@ spec:
       type: xlrelease.Task
     - name: Test
       type: databasePlugin.Oracle
-      db_password: !value "databasePlugin_Oracle_Test_db_password"
+  variables:
+  - type: xlrelease.PasswordStringVariable
+    key: Template
+    value: !value "xlrelease_PasswordStringVariable_Template_value"
   scriptUsername: admin
   riskProfile: Default risk profile
 - name: Trigger-One
   type: git.Poll
   releaseTitle: ENG-8601-Rel
+  variables:
+  - type: xlrelease.PasswordStringVariable
+    key: Template
+    value: !value "xlrelease_PasswordStringVariable_Template_value_0"
   template: First Template
   releaseFolder: ./
   gitRepository: Git -8601
