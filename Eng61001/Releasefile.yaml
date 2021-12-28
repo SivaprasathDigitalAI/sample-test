@@ -1,0 +1,41 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      10.2.8
+# Date created:         Tue Dec 28 19:15:16 IST 2021
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: ENG-6100-1
+spec:
+- name: test
+  type: events.GetWebhookEndpoint
+  path: test
+  authentication:
+    type: events.NoAuthentication
+- name: GIt Ops
+  type: git.Repository
+  url: https://github.com/SivaprasathDigitalAI/sample-test
+  username: SivaprasathDigitalAI
+  password: !value "git_Repository_GIt_Ops_password"
+- pattern: Pattern One
+  stages:
+  - stage: New Stage
+  - stage: New Stage (1)
+- template: Template One
+  scheduledStartDate: 2021-12-28T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: MT
+      type: xlrelease.Task
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_Template_One_scriptUserPassword"
+  riskProfile: Default risk profile
+- name: Trigger Test _1
+  type: git.Poll
+  releaseTitle: "6100"
+  template: Template One
+  releaseFolder: ./
+  gitRepository: GIt Ops
+  commitId: e05133357841a213bf5352f8390f2fc0407255e9
