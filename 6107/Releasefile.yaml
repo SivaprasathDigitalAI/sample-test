@@ -1,0 +1,35 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      10.3.5
+# Date created:         Tue Dec 28 18:37:59 IST 2021
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: "6107"
+spec:
+- name: git-Test
+  type: git.Repository
+  url: https://github.com/SivaprasathDigitalAI/sample-test
+  username: SivaprasathDigitalAI
+  password: !value "git_Repository_git_Test_password"
+- pattern: Pattern One-One
+  stages:
+  - stage: New Stage
+  - stage: New Stage (1)
+- template: Template IOne
+  scheduledStartDate: 2021-12-28T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: MT
+      type: xlrelease.Task
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_Template_IOne_scriptUserPassword"
+  riskProfile: Default risk profile
+- name: Trigger One
+  type: time.Schedule
+  releaseTitle: 6107-Triggered
+  template: Template IOne
+  releaseFolder: ./
+  periodicity: 0 0 9-17 * * MON
