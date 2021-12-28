@@ -13,6 +13,12 @@ spec:
   path: Test1
   authentication:
     type: events.NoAuthentication
+- name: Another Repo
+  type: git.Repository
+  variableMapping:
+    password: "${global.git.credentials}"
+  url: https://github.com/SivaprasathDigitalAI/TestRepo
+  username: SivaprasathDigitalAI
 - template: Tenp
   scheduledStartDate: 2021-12-28T09:00:00+05:30
   phases:
