@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Tue Dec 28 22:38:58 IST 2021
+# Date created:         Tue Dec 28 22:44:35 IST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,10 @@ kind: Templates
 metadata:
   home: ENF-6000
 spec:
+- folderVariables:
+  - type: xlrelease.PasswordStringVariable
+    key: folder.password
+    value: !value "xlrelease_PasswordStringVariable_folder_password_value"
 - name: Test1
   type: events.GetWebhookEndpoint
   path: Test1
@@ -21,11 +25,16 @@ spec:
   username: SivaprasathDigitalAI
 - template: Tenp
   scheduledStartDate: 2021-12-28T09:00:00+05:30
+  dueDate: 2021-12-28T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
     - name: MT
       type: xlrelease.Task
+  variables:
+  - type: xlrelease.PasswordStringVariable
+    key: Template.password
+    value: !value "xlrelease_PasswordStringVariable_Template_password_value"
   riskProfile: Default risk profile
 - name: TriggerQ
   type: events.EventBasedTrigger
@@ -42,3 +51,26 @@ spec:
   triggerActionType: xlrelease.CreateReleaseFromTemplateAction
   eventSource: Test1
   eventType: events.HttpRequestEvent
+- name: Git Poll rigger
+  type: git.Poll
+  releaseTitle: Git-6000
+  variables:
+  - type: xlrelease.PasswordStringVariable
+    key: Template.password
+    value: !value "xlrelease_PasswordStringVariable_Template_password_value_0"
+  template: Tenp
+  releaseFolder: ./
+  gitRepository: Another Repo
+  branch: master
+  username: test
+  password: !value "git_Poll_Git_Poll_rigger_password"
+- name: Another Trigger
+  type: time.Schedule
+  releaseTitle: 6000-Release
+  variables:
+  - type: xlrelease.PasswordStringVariable
+    key: Template.password
+    value: !value "xlrelease_PasswordStringVariable_Template_password_value_1"
+  template: Tenp
+  releaseFolder: ./
+  periodicity: 0 0 9-17 * * MON
