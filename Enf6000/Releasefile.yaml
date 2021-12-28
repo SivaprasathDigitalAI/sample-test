@@ -1,6 +1,6 @@
-# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Exported from:        http://LAPTOP-9C20LTLG:5518/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Tue Dec 28 22:44:35 IST 2021
+# Date created:         Tue Dec 28 22:50:20 IST 2021
 
 ---
 apiVersion: xl-release/v1
@@ -38,6 +38,7 @@ spec:
   riskProfile: Default risk profile
 - name: TriggerQ
   type: events.EventBasedTrigger
+  enabled: false
   mappedProperties:
   - type: xlrelease.StringValue
     targetProperty: releaseTitle
