@@ -1,0 +1,38 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      10.4.0-SNAPSHOT
+# Date created:         Tue Dec 28 19:21:08 IST 2021
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: ENF-6000
+spec:
+- name: Test1
+  type: events.GetWebhookEndpoint
+  path: Test1
+  authentication:
+    type: events.NoAuthentication
+- template: Tenp
+  scheduledStartDate: 2021-12-28T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: MT
+      type: xlrelease.Task
+  riskProfile: Default risk profile
+- name: TriggerQ
+  type: events.EventBasedTrigger
+  mappedProperties:
+  - type: xlrelease.StringValue
+    targetProperty: releaseTitle
+    value: Test
+  - type: xlrelease.StringValue
+    targetProperty: template
+    value: Tenp
+  - type: xlrelease.StringValue
+    targetProperty: releaseFolder
+    value: ./
+  triggerActionType: xlrelease.CreateReleaseFromTemplateAction
+  eventSource: Test1
+  eventType: events.HttpRequestEvent
