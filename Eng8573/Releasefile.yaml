@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      10.4.0-SNAPSHOT
-# Date created:         Wed Jan 05 11:31:38 IST 2022
+# Date created:         Wed Jan 05 11:38:11 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -24,6 +24,7 @@ spec:
   - stage: New Stage
 - template: Template One
   scheduledStartDate: 2022-01-05T09:00:00+05:30
+  dueDate: 2022-01-05T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
@@ -36,12 +37,33 @@ spec:
       ^title: Pattern One Delivery From Template
       pattern: ./Pattern One
       folder: ./
+      variableMapping:
+        pythonScript.deliveryId: "${deliveryId}"
+    - name: Jython Task
+      type: xlrelease.ScriptTask
+      script: print $deliveryId
+  variables:
+  - type: xlrelease.StringVariable
+    key: deliveryId
+    requiresValue: false
+    showOnReleaseStart: false
+    value: test
   scriptUsername: admin
   scriptUserPassword: !value "xlrelease_Release_Template_One_scriptUserPassword"
   riskProfile: Default risk profile
+- name: Trigger Two
+  type: git.Poll
+  releaseTitle: Trigger two
+  template: Template One
+  releaseFolder: ./
+  gitRepository: Git-Repo1
+  branch: main
+  username: test
+  password: !value "git_Poll_Trigger_Two_password"
 - name: Trigger-One
   type: time.Schedule
   releaseTitle: ENG-8573_Release
   template: Template One
   releaseFolder: ./
   periodicity: 0 0 9-17 * * MON
+  enabled: false
