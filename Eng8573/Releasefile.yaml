@@ -12,6 +12,11 @@ spec:
   - type: xlrelease.PasswordStringVariable
     key: folder.password
     value: !value "xlrelease_PasswordStringVariable_folder_password_value"
+- name: Jenkin
+  type: jenkins.Server
+  url: http://localHost:8090
+  username: admin
+  password: !value "jenkins_Server_Jenkin_password"
 - pattern: Pattern One
   stages:
   - stage: Stage One
