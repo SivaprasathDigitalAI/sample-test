@@ -1,0 +1,42 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      10.4.0-SNAPSHOT
+# Date created:         Wed Jan 05 11:31:38 IST 2022
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: ENG-8573
+spec:
+- folderVariables:
+  - type: xlrelease.PasswordStringVariable
+    key: folder.password
+    value: !value "xlrelease_PasswordStringVariable_folder_password_value"
+- pattern: Pattern One
+  stages:
+  - stage: Stage One
+  - stage: Stage Two
+  - stage: New Stage
+- template: Template One
+  scheduledStartDate: 2022-01-05T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: MT
+      type: xlrelease.Task
+    - name: MT2
+      type: xlrelease.Task
+    - name: Create Delivery
+      type: delivery.CreateDelivery
+      ^title: Pattern One Delivery From Template
+      pattern: ./Pattern One
+      folder: ./
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_Template_One_scriptUserPassword"
+  riskProfile: Default risk profile
+- name: Trigger-One
+  type: time.Schedule
+  releaseTitle: ENG-8573_Release
+  template: Template One
+  releaseFolder: ./
+  periodicity: 0 0 9-17 * * MON
