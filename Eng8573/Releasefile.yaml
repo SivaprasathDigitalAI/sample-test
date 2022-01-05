@@ -17,6 +17,12 @@ spec:
   url: http://localHost:8090
   username: admin
   password: !value "jenkins_Server_Jenkin_password"
+- name: Git -8601
+  type: git.Repository
+  variableMapping:
+    password: "${global.git.credentials}"
+  url: https://github.com/SivaprasathDigitalAI/sample-test
+  username: SivaprasathDigitalAI
 - pattern: Pattern One
   stages:
   - stage: Stage One
