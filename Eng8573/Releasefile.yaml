@@ -17,6 +17,11 @@ spec:
   - stage: Stage One
   - stage: Stage Two
   - stage: New Stage
+- pattern: Pattern Two
+  stages:
+  - stage: Stage One-One
+  - stage: Stage Two-two
+  - stage: New Stage
 - template: Template One
   scheduledStartDate: 2022-01-05T09:00:00+05:30
   phases:
