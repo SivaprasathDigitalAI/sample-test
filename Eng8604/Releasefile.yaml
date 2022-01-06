@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Thu Jan 06 13:19:04 IST 2022
+# Date created:         Thu Jan 06 21:09:13 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,16 +8,6 @@ kind: Templates
 metadata:
   home: ENG-8604
 spec:
-- name: Jenkin Server
-  type: jenkins.Server
-  url: http://localhost:5000
-  username: admin
-  password: !value "jenkins_Server_Jenkin_Server_password"
-- name: Jira Server
-  type: jira.Server
-  url: https://digitalai.atlassian.net/jira/software/
-  username: Sivaprasath Subramaniyan
-  password: !value "jira_Server_Jira_Server_password"
 - pattern: Pattern One
   stages:
   - stage: Stage One
@@ -33,32 +23,3 @@ spec:
   scriptUsername: admin
   scriptUserPassword: !value "xlrelease_Release_Template_One_scriptUserPassword"
   riskProfile: Default risk profile
-- name: Test DashBoard
-  type: xlrelease.BlankDashboard
-  owner: admin
-  tiles:
-  - name: Completed releases
-    type: xlrelease.CompletedReleasesTile
-    row: 0
-    col: 0
-  - name: JIRA issues
-    type: jira.JiraQueryTile
-    row: 0
-    col: 1
-    jiraServer: Jira Server
-    username: sivaprasath.subramaniyan@digital.ai
-    password: !value "jira_JiraQueryTile_JIRA_issues_password"
-    query: select * from table
-  - name: Latest commits
-    type: test.LatestCommitsTile
-    row: 0
-    col: 2
-    supportedScopes:
-    - release
-    - folder
-    - global
-  - name: Top 10 task assignees
-    type: xlrelease.TopTenTaskAssigneeTile
-    row: 0
-    col: 3
-  columns: 8
