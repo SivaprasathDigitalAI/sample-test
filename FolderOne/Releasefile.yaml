@@ -1,6 +1,6 @@
 # Exported from:        http://xl-release-nightly.xebialabs.com:5516/
 # Release version:      22.0.0-107.113
-# Date created:         Fri Jan 07 17:03:29 CET 2022
+# Date created:         Fri Jan 07 17:04:26 CET 2022
 
 ---
 apiVersion: xl-release/v1
@@ -55,6 +55,16 @@ spec:
     col: 0
   - name: Fortify On Demand application compliance
     type: fortifyOnDemand.FortifyOnDemandComplianceTile
+- name: Test Trigger
+  type: time.Schedule
+  releaseTitle: Folder-One-Release
+  variables:
+  - type: xlrelease.PasswordStringVariable
+    key: Password
+    value: !value "xlrelease_PasswordStringVariable_Password_value_0"
+  template: Temp One
+  releaseFolder: ./
+  periodicity: 0 0 9-17 * * MON
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
