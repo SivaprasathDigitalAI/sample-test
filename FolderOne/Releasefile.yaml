@@ -1,6 +1,6 @@
 # Exported from:        http://xl-release-nightly.xebialabs.com:5516/
 # Release version:      22.0.0-107.113
-# Date created:         Fri Jan 07 17:04:26 CET 2022
+# Date created:         Fri Jan 07 17:07:14 CET 2022
 
 ---
 apiVersion: xl-release/v1
@@ -14,6 +14,7 @@ spec:
     value: !value "xlrelease_PasswordStringVariable_folder_password_value"
 - template: Temp One
   scheduledStartDate: 2022-01-07T04:30:00+01:00
+  dueDate: 2022-01-07T05:30:00+01:00
   phases:
   - phase: New Phase
     tasks:
@@ -21,6 +22,9 @@ spec:
       type: xlrelease.Task
     - name: Task Two
       type: xlrelease.Task
+    - name: Test WebHook
+      type: webhook.WaitForJsonEvent
+      endpoint: Global Get
   variables:
   - type: xlrelease.PasswordStringVariable
     key: Password
