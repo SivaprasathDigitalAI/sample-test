@@ -1,6 +1,6 @@
 # Exported from:        http://xl-release-nightly.xebialabs.com:5516/
 # Release version:      22.0.0-107.113
-# Date created:         Fri Jan 07 12:48:14 CET 2022
+# Date created:         Fri Jan 07 12:51:28 CET 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,10 @@ kind: Templates
 metadata:
   home: Folder-One
 spec:
+- folderVariables:
+  - type: xlrelease.PasswordStringVariable
+    key: folder.password
+    value: !value "xlrelease_PasswordStringVariable_folder_password_value"
 - template: Temp One
   scheduledStartDate: 2022-01-07T04:30:00+01:00
   phases:
