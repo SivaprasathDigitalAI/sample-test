@@ -1,6 +1,6 @@
 # Exported from:        http://xl-release-nightly.xebialabs.com:5516/
 # Release version:      22.0.0-107.113
-# Date created:         Fri Jan 07 12:51:28 CET 2022
+# Date created:         Fri Jan 07 17:03:29 CET 2022
 
 ---
 apiVersion: xl-release/v1
@@ -16,11 +16,45 @@ spec:
   scheduledStartDate: 2022-01-07T04:30:00+01:00
   phases:
   - phase: New Phase
+    tasks:
+    - name: Task One
+      type: xlrelease.Task
+    - name: Task Two
+      type: xlrelease.Task
   variables:
   - type: xlrelease.PasswordStringVariable
     key: Password
     value: !value "xlrelease_PasswordStringVariable_Password_value"
   riskProfile: Default risk profile
+- name: One Dash
+  type: xlrelease.BlankDashboard
+  owner: admin
+  tiles:
+  - name: Active releases by status
+    type: live.ReleasesByStatusTile
+    row: 0
+    col: 0
+    filters:
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+    - type: xlrelease.CompositeFilter
+      filters:
+      - type: xlrelease.FolderFilter
+        folder: ./
+  - name: Avg. release duration over time
+    type: xlrelease.AvgReleaseDurationByMonthTile
+    row: 0
+    col: 2
+  - name: Avg. task duration
+    type: xlrelease.AvgTaskDurationTile
+    row: 0
+    col: 5
+  - name: BlackDuck risk profile
+    type: blackduck.BlackduckRiskProfileTile
+    row: 2
+    col: 0
+  - name: Fortify On Demand application compliance
+    type: fortifyOnDemand.FortifyOnDemandComplianceTile
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
