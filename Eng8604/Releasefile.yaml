@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Fri Jan 07 21:32:47 IST 2022
+# Date created:         Mon Jan 10 18:48:14 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,14 +8,6 @@ kind: Templates
 metadata:
   home: ENG-8604
 spec:
-- name: Jenkin Server
-  type: jenkins.Server
-  url: http://localhost:5000
-  username: admin
-- name: Jira Server
-  type: jira.Server
-  url: https://digitalai.atlassian.net/jira/software/
-  username: Sivaprasath Subramaniyan
 - pattern: Pattern One
   stages:
   - stage: Stage One
@@ -43,7 +35,6 @@ spec:
     type: jira.JiraQueryTile
     row: 0
     col: 1
-    jiraServer: Jira Server
     username: sivaprasath.subramaniyan@digital.ai
     query: select * from table
   - name: Latest commits
