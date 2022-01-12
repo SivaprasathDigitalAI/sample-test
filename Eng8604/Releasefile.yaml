@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Wed Jan 12 10:21:34 IST 2022
+# Date created:         Wed Jan 12 10:30:24 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -11,12 +11,16 @@ spec:
 - folderVariables:
   - type: xlrelease.PasswordStringVariable
     key: folder.Folder1pass
-    value: !value "xlrelease_PasswordStringVariable_folder_Folder1pass_value"
 - name: Test
   type: jenkins.Server
   url: http://localhost
   username: test
   password: !value "jenkins_Server_Test_password"
+- name: Digital
+  type: jira.Server
+  url: http://localhost
+  username: adminh
+  password: !value "jira_Server_Digital_password"
 - pattern: Pattern One
   stages:
   - stage: Stage One
@@ -32,9 +36,7 @@ spec:
   variables:
   - type: xlrelease.PasswordStringVariable
     key: Template.password
-    value: !value "xlrelease_PasswordStringVariable_Template_password_value"
   scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_Template_One_scriptUserPassword"
   riskProfile: Default risk profile
 - name: Test DashBoard
   type: xlrelease.BlankDashboard
@@ -48,7 +50,9 @@ spec:
     type: jira.JiraQueryTile
     row: 0
     col: 1
+    jiraServer: Digital
     username: sivaprasath.subramaniyan@digital.ai
+    password: !value "jira_JiraQueryTile_JIRA_issues_password"
     query: select * from table
   - name: Latest commits
     type: test.LatestCommitsTile
@@ -65,6 +69,7 @@ spec:
   columns: 8
 - name: Test Triggers
   type: events.EventBasedTrigger
+  enabled: false
   mappedProperties:
   - type: xlrelease.PasswordValue
     targetProperty: "variables[Template.password]"
@@ -81,3 +86,16 @@ spec:
   triggerActionType: xlrelease.CreateReleaseFromTemplateAction
   eventSource: Global Set
   eventType: events.HttpRequestEvent
+- name: Another Trigger
+  type: git.Poll
+  releaseTitle: Test FA
+  variables:
+  - type: xlrelease.PasswordStringVariable
+    key: Template.password
+    value: !value "xlrelease_PasswordStringVariable_Template_password_value"
+  template: Template One
+  releaseFolder: ./
+  gitRepository: firstGitRepository
+  branch: main
+  username: test
+  password: !value "git_Poll_Another_Trigger_password"
