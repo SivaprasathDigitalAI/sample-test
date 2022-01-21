@@ -1,0 +1,67 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      22.0.0-20211220-123974
+# Date created:         Fri Jan 21 11:42:21 IST 2022
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: ENG-8239
+spec:
+- pattern: ENG-8239-Pattern
+  stages:
+  - stage: Stage One 8239
+  - stage: Stage Two 8239
+- template: Template One
+  scheduledStartDate: 2022-01-21T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: MT
+      type: xlrelease.Task
+    - name: External Delivery
+      type: delivery.CreateDelivery
+      ^title: ExternalDel1
+      pattern: ENG-8699/Some Pattern
+      folder: ./
+      variableMapping:
+        pythonScript.deliveryId: "${DeliveryId}"
+    - name: Global Webhook
+      type: webhook.WaitForJsonEvent
+      endpoint: Global Webhook
+      variableMapping:
+        pythonScript.event: "${DeliveryId}"
+    - name: Gate Tasks
+      type: xlrelease.GateTask
+      facets:
+      - type: udm.DeploymentTaskFacet
+        variableMapping:
+          version: "${global.GLobalVar1}"
+        application: External App1
+        environment: Dev Env
+      - type: udm.DeploymentTaskFacet
+        version: V2
+        application: Exxternal App2
+        environment: Prod Env
+  variables:
+  - type: xlrelease.StringVariable
+    key: DeliveryId
+    requiresValue: false
+    showOnReleaseStart: false
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_Template_One_scriptUserPassword"
+  riskProfile: Default risk profile
+- name: Git Trigger
+  type: git.Poll
+  enabled: false
+  releaseTitle: ENG-8239
+  template: Template One
+  releaseFolder: ENG-8699
+  gitRepository: Global
+  branch: main
+- name: Time Based 8239
+  type: time.Schedule
+  releaseTitle: TimeBased8239
+  template: Template One
+  releaseFolder: ENG-8699
+  periodicity: 0 0 9-17 * * MON-FRI
