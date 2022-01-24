@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Mon Jan 24 15:27:32 IST 2022
+# Date created:         Mon Jan 24 16:46:55 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -14,10 +14,16 @@ spec:
     password: "${global.GLobalPass1}"
   url: https://github.com/SivaprasathDigitalAI/Test_versioning
   username: SivaprasathDigitalAI
+- pattern: Patter2
+  stages:
+  - stage: New Stage
 - pattern: Pattern
   stages:
   - stage: Stage One
   - stage: Stage two
+- pattern: p
+  stages:
+  - stage: New Stage
 - template: First Template
   scheduledStartDate: 2022-01-24T09:00:00+05:30
   phases:
