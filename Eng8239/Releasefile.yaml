@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Fri Jan 21 11:42:21 IST 2022
+# Date created:         Mon Jan 24 16:48:12 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,11 @@ kind: Templates
 metadata:
   home: ENG-8239
 spec:
+- name: ENG-8239
+  type: events.GetWebhookEndpoint
+  path: eng8239
+  authentication:
+    type: events.NoAuthentication
 - pattern: ENG-8239-Pattern
   stages:
   - stage: Stage One 8239
@@ -22,7 +27,7 @@ spec:
     - name: External Delivery
       type: delivery.CreateDelivery
       ^title: ExternalDel1
-      pattern: ENG-8699/Some Pattern
+      pattern: Deliveries/Delivery64f5af928c8a479d92b3942f42fe20e6
       folder: ./
       variableMapping:
         pythonScript.deliveryId: "${DeliveryId}"
@@ -51,6 +56,28 @@ spec:
   scriptUsername: admin
   scriptUserPassword: !value "xlrelease_Release_Template_One_scriptUserPassword"
   riskProfile: Default risk profile
+- name: ENG-8239-Dashboard
+  type: xlrelease.BlankDashboard
+  owner: admin
+  tiles:
+  - name: Completed releases
+    type: xlrelease.CompletedReleasesTile
+    row: 0
+    col: 0
+  - name: Current applications
+    type: deployment.CurrentApplicationsTile
+    row: 0
+    col: 1
+    filters:
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_MONTH
+  - name: JIRA issues
+    type: jira.JiraQueryTile
+    row: 0
+    col: 2
+    jiraServer: Jira-test
+    apiToken: !value "jira_JiraQueryTile_JIRA_issues_apiToken"
+    query: reporter ="Sivaprasath Subramaniyan"
 - name: Git Trigger
   type: git.Poll
   enabled: false
@@ -65,3 +92,149 @@ spec:
   template: Template One
   releaseFolder: ENG-8699
   periodicity: 0 0 9-17 * * MON-FRI
+  enabled: false
+  triggerTime: 2022-01-24T12:00:00.316000
+- directory: Sub-8239
+  children:
+  - name: Git-Rest
+    type: git.Repository
+    variableMapping:
+      password: "${global.GLobalPass1}"
+    url: https://github.com/SivaprasathDigitalAI/Test_versioning
+    username: SivaprasathDigitalAI
+  - pattern: Patter2
+    stages:
+    - stage: New Stage
+  - pattern: Pattern
+    stages:
+    - stage: Stage One
+    - stage: Stage two
+  - pattern: p
+    stages:
+    - stage: New Stage
+  - template: First Template
+    scheduledStartDate: 2022-01-24T09:00:00+05:30
+    phases:
+    - phase: New Phase
+      tasks:
+      - name: MT
+        type: xlrelease.Task
+      - name: Custom
+        type: databasePlugin.Oracle
+        artifactory_url: https://artifactory.server.rbsgrp.net/artifactory
+        artifactory_repo: test
+        artifact_path: test
+        artifact_name: test
+        artifact_version: "123"
+        property_env: local
+        db_user: SivaprasathDigitalAI
+        db_host: test
+        db_port: "1452"
+        database_name: Test
+        variableMapping:
+          pythonScript.db_password: "${global.GLobalPass1}"
+      - name: g
+        type: xlrelease.GateTask
+    riskProfile: Default risk profile
+  - name: dummy Dashboasrd
+    type: xlrelease.BlankDashboard
+    owner: admin
+    tiles:
+    - name: Active releases
+      type: live.ReleasesTile
+      row: 0
+      col: 0
+      filters:
+      - type: xlrelease.TemplateFilter
+        template: ./Template One
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_MONTH
+    - name: Active releases by risk
+      type: live.ReleasesByRiskTile
+      row: 0
+      col: 2
+      filters:
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_MONTH
+      - type: xlrelease.CompositeFilter
+        filters:
+        - type: xlrelease.FolderFilter
+          folder: ./Sub-8239
+    - name: Completed releases
+      type: xlrelease.CompletedReleasesTile
+      row: 0
+      col: 4
+    - name: Tile with custom config
+      type: test.TestTileCustomConfig
+      row: 0
+      col: 5
+      supportedScopes:
+      - release
+      - folder
+      - global
+  - name: Parent Trigger
+    type: events.EventBasedTrigger
+    enabled: false
+    mappedProperties:
+    - type: xlrelease.StringValue
+      targetProperty: releaseTitle
+      value: 8239_template
+    - type: xlrelease.StringValue
+      targetProperty: template
+      value: First Template
+    - type: xlrelease.StringValue
+      targetProperty: releaseFolder
+      value: ENG-8239/Sub-8239
+    triggerActionType: xlrelease.CreateReleaseFromTemplateAction
+    eventSource: Global Webhook
+    eventType: events.HttpRequestEvent
+  - name: Trigger One
+    type: git.Poll
+    enabled: false
+    releaseTitle: SUb8239
+    template: First Template
+    releaseFolder: ./Sub-8239
+    gitRepository: Github-8239
+    branch: Main
+  - directory: SubSub8239
+    children:
+    - pattern: SubSub8239
+      stages:
+      - stage: New Stage
+      - stage: New Stage (1)
+      - stage: New Stage (2)
+    - template: Template Two
+      scheduledStartDate: 2022-01-24T09:00:00+05:30
+      phases:
+      - phase: New Phase
+        tasks:
+        - name: MTG1
+          type: xlrelease.Task
+      riskProfile: Default risk profile
+    - name: DashBoard
+      type: xlrelease.BlankDashboard
+      owner: admin
+    - name: Trigger Test
+      type: events.EventBasedTrigger
+      enabled: false
+      mappedProperties:
+      - type: xlrelease.StringValue
+        targetProperty: releaseTitle
+        value: 8239_SUB_SUB
+      - type: xlrelease.StringValue
+        targetProperty: template
+        value: Template Two
+      - type: xlrelease.StringValue
+        targetProperty: releaseFolder
+        value: ENG-8239
+      triggerActionType: xlrelease.CreateReleaseFromTemplateAction
+      eventSource: ENG-8239
+      eventType: events.HttpRequestEvent
+    - name: Trigger Two
+      type: jira.IssueTrigger
+      enabled: false
+      releaseTitle: Eng8239
+      template: Template Two
+      releaseFolder: ./
+      jql: assignee ='test'
+      server: Jira-test
