@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Fri Feb 04 15:17:33 IST 2022
+# Date created:         Fri Feb 04 15:26:22 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -35,6 +35,13 @@ spec:
         pythonScript.event: "${eventType}"
     - name: Jython
       type: xlrelease.ScriptTask
+    - name: Jira
+      type: jira.GetIssueDetails
+      jiraServer: OurJira
+      issueId: ENG-877
+    - name: Jenkin
+      type: jenkins.Build
+      jenkinsServer: localhost
   variables:
   - type: xlrelease.StringVariable
     key: deliveryId
