@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Fri Feb 04 17:37:19 IST 2022
+# Date created:         Mon Feb 07 14:38:47 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,16 @@ kind: Templates
 metadata:
   home: ENG-8774
 spec:
+- name: Local Jenkins
+  type: jenkins.Server
+  url: http://localhost:5516
+  username: admin
+  password: !value "jenkins_Server_Local_Jenkins_password"
+- name: Local Jira
+  type: jira.Server
+  url: https://digitalai.atlassian.net/jira/software/c/projects/ENG
+  username: Sivaprasath Subramaniyan
+  apiToken: !value "jira_Server_Local_Jira_apiToken"
 - template: Some Template
   scheduledStartDate: 2022-02-04T09:00:00+05:30
   dueDate: 2022-02-04T10:00:00+05:30
@@ -25,11 +35,18 @@ spec:
         pythonScript.deliveryId: "${deliveryId}"
     - name: Json Event
       type: webhook.WaitForJsonEvent
-      endpoint: Local
+      endpoint: Global_Get
       variableMapping:
         pythonScript.event: "${eventType}"
     - name: Jython
       type: xlrelease.ScriptTask
+    - name: Jira Local
+      type: jira.GetIssueDetails
+      jiraServer: Local Jira
+      issueId: ENG-8774
+    - name: Jenkin Local
+      type: jenkins.Build
+      jenkinsServer: Local Jenkins
   variables:
   - type: xlrelease.StringVariable
     key: deliveryId
@@ -53,7 +70,7 @@ spec:
     targetProperty: releaseFolder
     value: ENG-8303
   triggerActionType: xlrelease.CreateReleaseFromTemplateAction
-  eventSource: Local
+  eventSource: Global_Get
   eventType: events.HttpRequestEvent
 - notifications:
   - notification: TASK_OVERDUE
