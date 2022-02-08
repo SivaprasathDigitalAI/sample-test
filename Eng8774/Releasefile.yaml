@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Tue Feb 08 11:33:50 IST 2022
+# Date created:         Tue Feb 08 12:51:54 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,21 @@ kind: Templates
 metadata:
   home: ENG-8774
 spec:
+- name: Local Jenkins1
+  type: jenkins.Server
+  url: http://localhost:5516
+  username: admin
+  password: !value "jenkins_Server_Local_Jenkins1_password"
+- name: Dummy Second Jira
+  type: jira.Server
+  url: http://localhost/jira
+  username: admin
+  password: !value "jira_Server_Dummy_Second_Jira_password"
+- name: Local Jira1
+  type: jira.Server
+  url: https://digitalai.atlassian.net/jira/software/c/projects/ENG
+  username: Sivaprasath Subramaniyan
+  apiToken: !value "jira_Server_Local_Jira1_apiToken"
 - template: Some Template
   scheduledStartDate: 2022-02-04T09:00:00+05:30
   dueDate: 2022-02-04T10:00:00+05:30
