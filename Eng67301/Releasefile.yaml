@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Mon Feb 14 15:55:11 IST 2022
+# Date created:         Mon Feb 14 17:47:09 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -20,7 +20,7 @@ spec:
   releaseFolder: ./
   gitRepository: Global Git
   branch: main
-  commitId: 94ff6d87071f479c2f261fa0872bef9854123e61
+  commitId: 8e59531e0787b4bf9a6b735d155fcaaa35bc575d
 - name: GIT3
   type: git.Poll
   releaseTitle: ENG-6730-1
@@ -28,7 +28,7 @@ spec:
   releaseFolder: ./
   gitRepository: Global Git
   branch: main
-  commitId: 94ff6d87071f479c2f261fa0872bef9854123e61
+  commitId: 8e59531e0787b4bf9a6b735d155fcaaa35bc575d
 - name: Git 4
   type: git.Poll
   releaseTitle: 6730-1
@@ -36,7 +36,7 @@ spec:
   releaseFolder: ./
   gitRepository: Global Git
   branch: main
-  commitId: 94ff6d87071f479c2f261fa0872bef9854123e61
+  commitId: 8e59531e0787b4bf9a6b735d155fcaaa35bc575d
 - name: Git 6
   type: git.Poll
   releaseTitle: 6730-1
@@ -44,7 +44,7 @@ spec:
   releaseFolder: ./
   gitRepository: Global Git
   branch: main
-  commitId: 94ff6d87071f479c2f261fa0872bef9854123e61
+  commitId: 8e59531e0787b4bf9a6b735d155fcaaa35bc575d
 - name: Git Trigger 6
   type: git.Poll
   releaseTitle: Test-1
@@ -52,7 +52,7 @@ spec:
   releaseFolder: ./
   gitRepository: Global Git
   branch: main
-  commitId: 94ff6d87071f479c2f261fa0872bef9854123e61
+  commitId: 8e59531e0787b4bf9a6b735d155fcaaa35bc575d
 - name: Git2
   type: git.Poll
   releaseTitle: EEE
@@ -60,7 +60,7 @@ spec:
   releaseFolder: ./
   gitRepository: Global Git
   branch: main
-  commitId: 94ff6d87071f479c2f261fa0872bef9854123e61
+  commitId: 8e59531e0787b4bf9a6b735d155fcaaa35bc575d
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
