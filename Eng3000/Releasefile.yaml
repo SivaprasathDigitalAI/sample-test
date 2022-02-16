@@ -1,13 +1,18 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Tue Feb 15 17:54:04 IST 2022
+# Date created:         Wed Feb 16 15:38:48 IST 2022
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  home: ENG-3000
+  home: ENG-2000
 spec:
+- template: T123
+  scheduledStartDate: 2022-02-16T09:00:00+05:30
+  phases:
+  - phase: New Phase
+  riskProfile: Default risk profile
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
