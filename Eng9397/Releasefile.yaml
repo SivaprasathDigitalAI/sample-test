@@ -1,0 +1,50 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      22.0.0-20211220-123974
+# Date created:         Wed Mar 16 21:56:49 IST 2022
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: ENG-9397
+spec:
+- template: Template 1
+  scheduledStartDate: 2022-03-16T09:00:00+05:30
+  phases:
+  - phase: New Phase
+  variables:
+  - type: xlrelease.StringVariable
+    key: ListBox
+    label: List Box
+    valueProvider:
+      type: test.TestValueProvider
+  - type: xlrelease.StringVariable
+    key: Fixed Value ListBox
+    valueProvider:
+      type: xlrelease.ListOfStringValueProviderConfiguration
+      values:
+      - one
+      - two
+    value: one
+  riskProfile: Default risk profile
+- template: Template 2
+  scheduledStartDate: 2022-03-16T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: CR1
+      type: xlrelease.CreateReleaseTask
+      newReleaseTitle: CRT Release
+      templateVariables:
+      - type: xlrelease.StringVariable
+        key: ListBox
+        label: List Box
+        value: "2"
+      - type: xlrelease.StringVariable
+        key: Fixed Value ListBox
+        inherited: true
+        value: one
+      riskProfile: Default risk profile
+      template: ./Template 1
+      folder: ./
+  riskProfile: Default risk profile
