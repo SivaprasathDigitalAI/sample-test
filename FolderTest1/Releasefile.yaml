@@ -1,6 +1,6 @@
 # Exported from:        http://xl-release-nightly.xebialabs.com:5516/
 # Release version:      22.2.0-314.113
-# Date created:         Mon Mar 21 07:13:43 CET 2022
+# Date created:         Mon Mar 21 07:16:19 CET 2022
 
 ---
 apiVersion: xl-release/v1
@@ -12,6 +12,9 @@ spec:
   - type: xlrelease.PasswordStringVariable
     key: folder.WebHooksPassword
     value: !value "xlrelease_PasswordStringVariable_folder_WebHooksPassword_value"
+  - type: xlrelease.PasswordStringVariable
+    key: folder.folderPass2
+    value: !value "xlrelease_PasswordStringVariable_folder_folderPass2_value"
 - name: Get
   type: events.GetWebhookEndpoint
   variableMapping:
@@ -21,8 +24,12 @@ spec:
     type: events.TokenAuthentication
 - template: T1
   scheduledStartDate: 2022-03-21T04:30:00+01:00
+  dueDate: 2022-03-21T05:30:00+01:00
   phases:
   - phase: New Phase
+    tasks:
+    - name: MT1
+      type: xlrelease.Task
   variables:
   - type: xlrelease.PasswordStringVariable
     key: password
