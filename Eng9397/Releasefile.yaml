@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Thu Mar 17 12:39:35 IST 2022
+# Date created:         Mon Mar 21 16:41:18 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,13 @@ kind: Templates
 metadata:
   home: ENG-9397
 spec:
+- folderVariables:
+  - type: xlrelease.PasswordStringVariable
+    key: folder.pass1
+    value: !value "xlrelease_PasswordStringVariable_folder_pass1_value"
+  - type: xlrelease.PasswordStringVariable
+    key: folder.pass2
+    value: !value "xlrelease_PasswordStringVariable_folder_pass2_value"
 - template: Template 1
   scheduledStartDate: 2022-03-16T09:00:00+05:30
   dueDate: 2022-03-16T10:00:00+05:30
@@ -19,6 +26,7 @@ spec:
     label: List Box
     valueProvider:
       type: test.TestValueProvider
+      param2: "100"
   - type: xlrelease.StringVariable
     key: Fixed Value ListBox
     valueProvider:
@@ -48,11 +56,19 @@ spec:
       - type: xlrelease.StringVariable
         key: ListBox
         label: List Box
-        value: "2"
+        value: "4"
       - type: xlrelease.StringVariable
         key: Fixed Value ListBox
         inherited: true
         value: one
+      - type: xlrelease.StringVariable
+        key: String var1
+        inherited: true
+        value: T1
+      - type: xlrelease.PasswordStringVariable
+        key: Pass Var
+        label: Pass Var
+        inherited: true
       riskProfile: Default risk profile
       template: ./Template 1
       folder: ./
