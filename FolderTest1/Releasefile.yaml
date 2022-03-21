@@ -1,6 +1,6 @@
 # Exported from:        http://xl-release-nightly.xebialabs.com:5516/
 # Release version:      22.2.0-314.113
-# Date created:         Mon Mar 21 07:16:19 CET 2022
+# Date created:         Mon Mar 21 12:57:18 CET 2022
 
 ---
 apiVersion: xl-release/v1
@@ -36,3 +36,18 @@ spec:
     requiresValue: false
     showOnReleaseStart: false
   riskProfile: Default risk profile
+- name: Trigger One
+  type: events.EventBasedTrigger
+  mappedProperties:
+  - type: xlrelease.StringValue
+    targetProperty: releaseTitle
+    value: FOlder One-R
+  - type: xlrelease.StringValue
+    targetProperty: template
+    value: T1
+  - type: xlrelease.StringValue
+    targetProperty: releaseFolder
+    value: ./
+  triggerActionType: xlrelease.CreateReleaseFromTemplateAction
+  eventSource: GLOBAL_GET_WEBHOOK
+  eventType: events.HttpRequestEvent
