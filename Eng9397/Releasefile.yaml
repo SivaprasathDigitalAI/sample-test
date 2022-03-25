@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Mon Mar 21 16:54:09 IST 2022
+# Date created:         Fri Mar 25 17:31:11 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -89,3 +89,11 @@ spec:
   triggerActionType: xlrelease.CreateReleaseFromTemplateAction
   eventSource: Global_GET_WEBHOOK
   eventType: events.HttpRequestEvent
+- name: Gti Trigger 2
+  type: git.Poll
+  enabled: false
+  periodicity: "60"
+  releaseTitle: RR1
+  template: Template 2
+  gitRepository: git_test
+  branch: master
