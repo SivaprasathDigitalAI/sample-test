@@ -1,6 +1,6 @@
 // Exported from:        http://LAPTOP-9C20LTLG:5516/#/templates/Folder053fbbd0f3c84c48a62aedd3aae461ac-Releasedca4608433fe40beb9605350856fc1ce/code
 // Release version:      22.1.2
-// Date created:         Thu May 26 13:01:47 IST 2022
+// Date created:         Thu May 26 13:08:44 IST 2022
 
 xlr {
   template('FF') {
@@ -10,6 +10,9 @@ xlr {
       phase('New Phase') {
         tasks {
           manual('Tq') {
+            
+          }
+          manual('ttt') {
             
           }
         }
