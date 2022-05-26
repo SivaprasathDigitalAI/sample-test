@@ -1,6 +1,6 @@
 // Exported from:        http://LAPTOP-9C20LTLG:5516/#/templates/Folderaaeae0c3ecbe4b3abb7918631de1fe82-Release63aa428539c14836a1253ea69906cd23/code
 // Release version:      22.1.3
-// Date created:         Thu May 26 13:28:26 IST 2022
+// Date created:         Thu May 26 13:30:07 IST 2022
 
 xlr {
   template('FFQ') {
@@ -16,6 +16,9 @@ xlr {
             
           }
           manual('F') {
+            
+          }
+          manual('DDD') {
             
           }
         }
