@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Thu Jun 09 16:34:50 IST 2022
+# Date created:         Thu Jun 09 16:45:57 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -10,12 +10,14 @@ metadata:
 spec:
 - template: Template One
   scheduledStartDate: 2022-06-09T09:00:00+05:30
+  dueDate: 2022-06-09T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
     - name: MT1
       type: xlrelease.Task
   scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_Template_One_scriptUserPassword"
   riskProfile: Default risk profile
 - notifications:
   - notification: TASK_OVERDUE
