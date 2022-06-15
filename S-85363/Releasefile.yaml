@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Wed Jun 15 16:51:54 IST 2022
+# Date created:         Wed Jun 15 16:53:18 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,11 @@ kind: Templates
 metadata:
   home: D1
 spec:
+- folderVariables:
+  - type: xlrelease.StringVariable
+    key: folder.f1
+    label: f1
+    value: f1
 - name: GitHb
   type: xlrelease.GitHubScmConnectorConfig
   repository: SivaprasathDigitalAI/sample-test
@@ -115,6 +120,13 @@ spec:
       type: xlrelease.Task
   scriptUsername: admin
   riskProfile: Default risk profile
+- name: T1
+  type: time.Schedule
+  releaseTitle: D1-1
+  template: Rel Groovy
+  releaseFolder: ./
+  periodicity: 0 0 9-17 * * MON-FRI
+  enabled: false
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
