@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Wed Jun 15 16:53:18 IST 2022
+# Date created:         Thu Jun 16 12:18:30 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,11 +8,6 @@ kind: Templates
 metadata:
   home: D1
 spec:
-- folderVariables:
-  - type: xlrelease.StringVariable
-    key: folder.f1
-    label: f1
-    value: f1
 - name: GitHb
   type: xlrelease.GitHubScmConnectorConfig
   repository: SivaprasathDigitalAI/sample-test
@@ -31,12 +26,14 @@ spec:
   autoComplete: true
 - template: DAI 161005 test (1)
   scheduledStartDate: 2022-05-31T18:30:00+05:30
+  dueDate: 2022-05-31T19:30:00+05:30
   phases:
   - phase: New Phase
   scriptUsername: script_runner
   riskProfile: Default risk profile
 - template: Rel Groovy
   scheduledStartDate: 2022-06-10T09:00:00+05:30
+  dueDate: 2022-06-10T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
@@ -57,6 +54,34 @@ spec:
 
                   }
                 }
+              }
+            }
+
+          }
+        }
+  riskProfile: Default risk profile
+- template: T1
+  scheduledStartDate: 2022-06-16T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: RF
+      type: xlrelease.GroovyScriptTask
+      ignoreScriptVariableInterpolation: true
+      script: |-
+        // Exported from:        http://LAPTOP-9C20LTLG:5516/#/templates/Folder61f164c9347544038cc8466685b62ce9-Release9fe9b6b4d4464a349e3140173ee262cb/code
+        // Release version:      22.0.0-20211220-123974
+        // Date created:         Thu Jun 16 11:23:37 IST 2022
+
+        xlr {
+          release('DAI 161005 test (1)') {
+            folder('D1')
+            scheduledStartDate Date.parse("yyyy-MM-dd'T'HH:mm:ssZ", '2022-05-31T18:30:00+0530')
+            dueDate Date.parse("yyyy-MM-dd'T'HH:mm:ssZ", '2022-05-31T19:30:00+0530')
+            scriptUsername 'script_runner'
+            phases {
+              phase('New Phase') {
+
               }
             }
 
@@ -103,6 +128,7 @@ spec:
   riskProfile: Default risk profile
 - template: Template One (3)
   scheduledStartDate: 2022-06-09T09:00:00+05:30
+  dueDate: 2022-06-09T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
@@ -111,8 +137,21 @@ spec:
   scriptUsername: admin
   scriptUserPassword: !value "xlrelease_Release_Template_One__3__scriptUserPassword"
   riskProfile: Default risk profile
+- template: Template One (4)
+  scheduledStartDate: 2022-06-09T09:00:00+05:30
+  dueDate: 2022-06-09T10:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: MT1
+      type: xlrelease.Task
+    - name: MT2
+      type: xlrelease.Task
+  scriptUsername: admin
+  riskProfile: Default risk profile
 - template: Tep2
   scheduledStartDate: 2022-06-10T09:00:00+05:30
+  dueDate: 2022-06-10T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
@@ -120,13 +159,14 @@ spec:
       type: xlrelease.Task
   scriptUsername: admin
   riskProfile: Default risk profile
-- name: T1
-  type: time.Schedule
-  releaseTitle: D1-1
-  template: Rel Groovy
+- name: G1
+  type: git.Poll
+  releaseTitle: T-_github-rel
+  template: T1
   releaseFolder: ./
-  periodicity: 0 0 9-17 * * MON-FRI
-  enabled: false
+  gitRepository: Git Hub
+  branch: master
+  commitId: 1cb8203ab60af514649daeddd98dfb06bef0e46f
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
