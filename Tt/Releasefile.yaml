@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Wed Mar 01 15:32:01 IST 2023
+# Date created:         Wed Mar 01 17:25:03 IST 2023
 
 ---
 apiVersion: xl-release/v1
@@ -39,4 +39,12 @@ spec:
       type: xlrelease.TimelineTile
     - name: Release health
       type: xlrelease.ReleaseHealthTile
+  riskProfile: Default risk profile
+- template: T2
+  scheduledStartDate: 2023-03-01T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: MY
+      type: xlrelease.Task
   riskProfile: Default risk profile
