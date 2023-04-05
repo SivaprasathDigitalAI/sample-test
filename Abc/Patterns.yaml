@@ -4,12 +4,11 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Templates
+metadata:
+  home: ABC
 spec:
-  imports:
-  - Templates.yaml
-  - Notifications.yaml
-  - Variables.yaml
-  - Dashboards.yaml
-  - Patterns.yaml
-  - Triggers.yaml
+- pattern: P1
+  stages:
+  - stage: New Stage
+  - stage: New Stage (1)

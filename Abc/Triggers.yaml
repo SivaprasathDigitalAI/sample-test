@@ -4,12 +4,14 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Templates
+metadata:
+  home: ABC
 spec:
-  imports:
-  - Templates.yaml
-  - Notifications.yaml
-  - Variables.yaml
-  - Dashboards.yaml
-  - Patterns.yaml
-  - Triggers.yaml
+- name: T1
+  type: time.Schedule
+  releaseTitle: DDD
+  template: T1
+  releaseFolder: ./
+  periodicity: 0 0 9-17 * * MON-FRI
+  enabled: false

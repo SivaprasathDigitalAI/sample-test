@@ -4,12 +4,12 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Templates
+metadata:
+  home: ABC
 spec:
-  imports:
-  - Templates.yaml
-  - Notifications.yaml
-  - Variables.yaml
-  - Dashboards.yaml
-  - Patterns.yaml
-  - Triggers.yaml
+- folderVariables:
+  - type: xlrelease.StringVariable
+    key: folder.f1
+    label: abc
+    value: abc
