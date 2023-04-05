@@ -1,0 +1,21 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      22.0.0-20211220-123974
+# Date created:         Wed Apr 05 20:33:00 IST 2023
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: ABC
+spec:
+- template: T1
+  scheduledStartDate: 2023-04-05T09:00:00+05:30
+  dueDate: 2023-04-05T10:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: MT
+      type: xlrelease.Task
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_T1_scriptUserPassword"
+  riskProfile: Default risk profile

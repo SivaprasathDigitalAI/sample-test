@@ -1,0 +1,114 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      22.0.0-20211220-123974
+# Date created:         Wed Apr 05 20:33:00 IST 2023
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: ABC
+spec:
+- name: Release statistics
+  type: xlrelease.ReleaseStatisticsDashboard
+  owner: admin
+  tiles:
+  - name: Longest task type
+    type: xlrelease.LongestTaskTypeTile
+    row: 0
+    col: 1
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Number of releases
+    type: xlrelease.ReleasesByMonthTile
+    row: 2
+    col: 3
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Release efficiency
+    type: xlrelease.ReleaseEfficiencyTile
+    row: 2
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Avg. task duration
+    type: xlrelease.AvgTaskDurationTile
+    row: 1
+    col: 1
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Time spent by task category
+    type: xlrelease.TaskTimeSpentTile
+    row: 0
+    col: 4
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Completed releases
+    type: xlrelease.CompletedReleasesTile
+    row: 0
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Avg. release duration
+    type: xlrelease.AvgReleaseDurationTile
+    row: 1
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Task efficiency
+    type: xlrelease.TaskEfficiencyTile
+    row: 0
+    col: 2
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Top 10 longest releases
+    type: xlrelease.LongestReleasesTile
+    row: 4
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Avg. release duration over time
+    type: xlrelease.AvgReleaseDurationByMonthTile
+    row: 4
+    col: 3
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Top 10 longest phases
+    type: xlrelease.LongestPhasesTile
+    row: 6
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Top 10 longest tasks
+    type: xlrelease.LongestTasksTile
+    row: 6
+    col: 3
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  filters:
+  - type: xlrelease.FolderFilter
+    folder: ./
+  - type: xlrelease.DateFilter
