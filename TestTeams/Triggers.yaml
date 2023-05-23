@@ -8,7 +8,11 @@ kind: Templates
 metadata:
   home: Test-Teams
 spec:
-- pattern: T1
-  stages:
-  - stage: New Stage
-  - stage: New Stage (1)
+- name: FFF
+  type: git.Poll
+  periodicity: "60"
+  releaseTitle: FFFFFF
+  template: TTT1
+  gitRepository: DDDDD
+  branch: main
+  commitId: 8115b030f5448fa29ad99473653abf4f124f82c7

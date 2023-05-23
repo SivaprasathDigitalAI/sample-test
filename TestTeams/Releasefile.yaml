@@ -1,13 +1,14 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      22.0.0-20211220-123974
-# Date created:         Tue May 23 18:36:22 IST 2023
+# Date created:         Tue May 23 18:40:25 IST 2023
 
 ---
 apiVersion: xl-release/v1
 kind: Import
 spec:
   imports:
-  - Patterns.yaml
   - Templates.yaml
   - Notifications.yaml
   - Connections.yaml
+  - Patterns.yaml
+  - Triggers.yaml
