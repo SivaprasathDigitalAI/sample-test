@@ -1,0 +1,19 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      22.0.0-20211220-123974
+# Date created:         Tue May 23 18:32:47 IST 2023
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: Test-Teams
+spec:
+- name: Git test
+  type: git.Poll
+  enabled: false
+  periodicity: "60"
+  releaseTitle: Git_release
+  template: T1
+  gitRepository: Gt Rrpo
+  branch: master
+  commitId: cec9fb3e20b62beeb92b0afde21ab3e3c4cac892

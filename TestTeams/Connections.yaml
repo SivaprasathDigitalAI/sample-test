@@ -1,0 +1,20 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      22.0.0-20211220-123974
+# Date created:         Tue May 23 18:32:47 IST 2023
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: Test-Teams
+spec:
+- name: DDDDD
+  type: git.Repository
+  url: https://github.com/SivaprasathDigitalAI/Test_versioning
+  authenticationMethod: PAT
+  password: !value "git_Repository_DDDDD_password"
+- name: Jenkins Local
+  type: jenkins.Server
+  url: http://localhost:8080
+  username: admin
+  password: !value "jenkins_Server_Jenkins_Local_password"

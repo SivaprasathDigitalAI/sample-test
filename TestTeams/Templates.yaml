@@ -1,0 +1,107 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      22.0.0-20211220-123974
+# Date created:         Tue May 23 18:32:47 IST 2023
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: Test-Teams
+spec:
+- template: T1
+  scheduledStartDate: 2023-05-08T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: FCD
+      type: delivery.FindOrCreateDelivery
+      fallback: true
+      ^title: RR1
+      pattern: ./T1
+      folder: D-25027
+    - name: CD
+      type: delivery.CreateDelivery
+      ^title: DDDDD
+      pattern: ./T1
+      folder: D-2
+  variables:
+  - type: xlrelease.StringVariable
+    key: buildNumber
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: status
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: jobUrl
+    requiresValue: false
+    showOnReleaseStart: false
+  riskProfile: Default risk profile
+- template: TTT1
+  scheduledStartDate: 2023-05-10T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: Webhook
+      type: webhook.JsonWebhook
+      URL: https://sivatest.free.beeceptor.com/todos
+      precondition: result = True
+    - name: Mt2
+      type: xlrelease.Task
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_TTT1_scriptUserPassword"
+  riskProfile: Default risk profile
+- template: Test Delivery
+  scheduledStartDate: 2023-05-10T20:30:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: Test Delivery
+      type: delivery.FindOrCreateDelivery
+      nameFilter: Test
+      fallback: true
+      ^title: "${folder.DeliveryName}"
+      folder: Tes6
+  - phase: New Phase
+    tasks:
+    - name: Test Delivery
+      type: delivery.FindOrCreateDelivery
+      nameFilter: Test
+      fallback: true
+      ^title: "${folder.DeliveryName}"
+      folder: Tes6
+    - name: HGDD
+      type: xlrelease.Task
+    - name: TTYE
+      type: xlrelease.Task
+    - name: kkkk
+      type: xlrelease.Task
+  - phase: New Phase
+    tasks:
+    - name: Test Delivery
+      type: delivery.FindOrCreateDelivery
+      nameFilter: Test
+      fallback: true
+      ^title: "${folder.DeliveryName}"
+      folder: Tes6
+    - name: HGDD
+      type: xlrelease.Task
+    - name: TTYE
+      type: xlrelease.Task
+    - name: kkkk
+      type: xlrelease.Task
+  - phase: New Phase
+    tasks:
+    - name: Test Delivery
+      type: delivery.FindOrCreateDelivery
+      nameFilter: Test
+      fallback: true
+      ^title: "${folder.DeliveryName}"
+      folder: Tes6
+    - name: MMTS
+      type: xlrelease.Task
+    - name: HGDD
+      type: xlrelease.Task
+  - phase: New Phase
+  riskProfile: Default risk profile
