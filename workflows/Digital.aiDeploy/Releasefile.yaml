@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      23.1.0
-# Date created:         Tue Aug 29 15:47:54 IST 2023
+# Date created:         Tue Aug 29 15:50:51 IST 2023
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,13 @@ kind: Templates
 metadata:
   home: workflows/Digital.ai Deploy
 spec:
+- pattern: P1
+  stages:
+  - stage: New Stage
+  - stage: New Stage (1)
+- pattern: P2
+  stages:
+  - stage: New Stage
 - template: T1
   scheduledStartDate: 2023-08-28T09:00:00+05:30
   phases:
