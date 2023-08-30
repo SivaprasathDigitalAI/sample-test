@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      23.1.0
-# Date created:         Tue Aug 29 15:50:51 IST 2023
+# Date created:         Wed Aug 30 12:34:02 IST 2023
 
 ---
 apiVersion: xl-release/v1
@@ -17,32 +17,36 @@ spec:
   - stage: New Stage
 - template: T1
   scheduledStartDate: 2023-08-28T09:00:00+05:30
+  dueDate: 2023-08-28T10:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
     - name: MT
       type: xlrelease.Task
-    - name: DD
-      type: delivery.CreateDelivery
-      ^title: EEEE
-      pattern: ./P1
-      folder: ./
-      variableMapping:
-        pythonScript.deliveryId: "${deliveryId}"
-    - name: MT
-      type: delivery.MarkTrackedItems
-      precedingStages: true
-      stage: New Stage
-      delivery: "${deliveryId}"
-      pattern: ./P1
-    - name: FCD
-      type: delivery.FindOrCreateDelivery
-      fallback: true
-      ^title: DDDDD
-      pattern: ./P1
-      folder: ./
-      variableMapping:
-        pythonScript.deliveryId: "${deliveryId2}"
+    - name: SQ
+      type: xlrelease.SequentialGroup
+      tasks:
+      - name: DD
+        type: delivery.CreateDelivery
+        ^title: EEEE
+        pattern: ./P1
+        folder: ./
+        variableMapping:
+          pythonScript.deliveryId: "${deliveryId}"
+      - name: FCD
+        type: delivery.FindOrCreateDelivery
+        fallback: true
+        ^title: DDDDD
+        pattern: ./P1
+        folder: ./
+        variableMapping:
+          pythonScript.deliveryId: "${deliveryId2}"
+      - name: MT
+        type: delivery.MarkTrackedItems
+        precedingStages: true
+        stage: New Stage
+        delivery: "${deliveryId}"
+        pattern: ./P1
   variables:
   - type: xlrelease.StringVariable
     key: deliveryId
