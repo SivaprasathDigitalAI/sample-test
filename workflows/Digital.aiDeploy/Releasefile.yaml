@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-9C20LTLG:5516/
 # Release version:      23.1.0
-# Date created:         Wed Aug 30 12:34:02 IST 2023
+# Date created:         Thu Sep 07 14:12:59 IST 2023
 
 ---
 apiVersion: xl-release/v1
@@ -23,16 +23,22 @@ spec:
     tasks:
     - name: MT
       type: xlrelease.Task
+    - name: DD
+      type: delivery.CreateDelivery
+      ^title: EEEE
+      pattern: ./P1
+      folder: ./
+      variableMapping:
+        pythonScript.deliveryId: "${deliveryId}"
+    - name: MT
+      type: delivery.MarkTrackedItems
+      precedingStages: true
+      stage: New Stage
+      delivery: "${deliveryId}"
+      pattern: ./P1
     - name: SQ
       type: xlrelease.SequentialGroup
       tasks:
-      - name: DD
-        type: delivery.CreateDelivery
-        ^title: EEEE
-        pattern: ./P1
-        folder: ./
-        variableMapping:
-          pythonScript.deliveryId: "${deliveryId}"
       - name: FCD
         type: delivery.FindOrCreateDelivery
         fallback: true
@@ -41,12 +47,6 @@ spec:
         folder: ./
         variableMapping:
           pythonScript.deliveryId: "${deliveryId2}"
-      - name: MT
-        type: delivery.MarkTrackedItems
-        precedingStages: true
-        stage: New Stage
-        delivery: "${deliveryId}"
-        pattern: ./P1
   variables:
   - type: xlrelease.StringVariable
     key: deliveryId
