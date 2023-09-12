@@ -1,0 +1,19 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      23.1.0
+# Date created:         Tue Sep 12 12:19:43 IST 2023
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: workflows
+spec:
+- directory: Digital.ai Deploy
+  children:
+  - pattern: P1
+    stages:
+    - stage: New Stage
+    - stage: New Stage (1)
+  - pattern: P2
+    stages:
+    - stage: New Stage
