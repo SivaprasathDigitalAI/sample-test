@@ -1,0 +1,31 @@
+# Exported from:        http://LAPTOP-9C20LTLG:5516/
+# Release version:      23.1.0
+# Date created:         Tue Sep 12 12:31:58 IST 2023
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  home: workflows
+spec:
+- template: Workflow_T1
+  scheduledStartDate: 2023-08-28T09:00:00+05:30
+  dueDate: 2023-08-28T10:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: MT
+      type: xlrelease.Task
+  variables:
+  - type: xlrelease.StringVariable
+    key: releaseVar1
+    value: Test1
+  - type: xlrelease.StringVariable
+    key: ReleaseVar2
+    value: test2
+  - type: xlrelease.StringVariable
+    key: ReleaseVar3
+    requiresValue: false
+    showOnReleaseStart: false
+    value: Test3
+  riskProfile: Default risk profile
